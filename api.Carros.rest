@@ -1,0 +1,35 @@
+######### Cadastro Carros
+POST http://127.0.0.1:3333/topics HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz 
+
+
+{
+    "ano": "2022"
+    "Carros": "BMW"
+}
+
+######### Listar todos os Carros
+Get http://127.0.0.1:3333/topics HTTP/1.1
+content-Type: application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz
+
+######### Listar Carros específico
+GET http://127.0.0.1:3333/topics/1 HTTP/1.1 
+content-Type: application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz
+
+######### Alterar Carros
+PUT http://127.0.0.1:3333/topics/1 HTTP/1.1 
+content-Type: application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz
+
+{
+    "ano": "2021"
+    "Carros": "Saveiro cross"
+}
+
+######### Apagar Carros 
+DELET http://127.0.0.1:3333/topics/1 HTTP/1.1 
+content-Type: application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz

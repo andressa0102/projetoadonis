@@ -5,6 +5,15 @@ export default class Carro extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+  @column()
+  public nome: string
+
+  @column()
+  public ano: number
+
+  @column()
+  public valor: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
