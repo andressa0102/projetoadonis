@@ -27,6 +27,7 @@ Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T4
 {
     "ano": "2021"
     "Carros": "Saveiro cross"
+    "Valor": "100.000"
 }
 
 ######### Apagar Carros 

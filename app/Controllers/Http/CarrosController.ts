@@ -5,19 +5,19 @@ import CarroValidator from 'App/Validators/CarroValidator'
 export default class CarrosController {
 
     public async index({ }: HttpContextContract) {
-        const topic = await Carros.query().preload('user').orderBy('id')
+        const topic = await Carro.all()
         return topic
     }
 
     public async store({ request, auth }: HttpContextContract) {
         const data = await request.validate(CarroValidator)
-        const topic = await Carros.create({ ...data, userId: auth.user?.id })
+        const topic = await Carro.create({ ...data})
         return topic
     }
 
     public async show({ params, response }: HttpContextContract) {
         try {
-            const topic = await Carros.findOrFail(params.id)
+            const topic = await Carro.findOrFail(params.id)
             return topic
         }   catch (error) {
             response.status(400).send("Carro não encontrado!!!")
@@ -25,12 +25,13 @@ export default class CarrosController {
     }
 
     public async update({ request, params, response }: HttpContextContract) {
-        const { ano, Carros } = await request.validate(CarroValidator)
+        const { ano, nome, valor } = await request.validate(CarroValidator)
         try {
-            const topic = await Carros.findOrFail(params.id)
+            const topic = await Carro.findOrFail(params.id)
             topic.ano = ano
-            topic.Carros = Carros
-            await Carros.save()
+            topic.nome = nome
+            topic.valor = valor
+            await topic.save()
             return topic
 
         } catch (error) {
@@ -38,9 +39,9 @@ export default class CarrosController {
         }
 }
 
-public async destroy({ params, response }: HttpsContextContract) {
+public async destroy({ params, response }: HttpContextContract) {
     try {
-        const topic = await Carros.findOrFail(params.id)
+        const topic = await Carro.findOrFail(params.id)
         await topic.delete()
         return topic
     } catch (error) {

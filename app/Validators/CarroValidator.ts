@@ -1,4 +1,4 @@
-import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
+import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class CarroValidator {
@@ -27,12 +27,8 @@ export default class CarroValidator {
     nome: schema.string({}, [
       rules.required()
     ]),
-    ano: schema.number({}, [
-      rules.required()
-    ]),
-    valor: schema.float({}, [
-      rules.required()
-    ]),
+    ano: schema.number(),
+    valor: schema.number(),
   })
 
   /**
