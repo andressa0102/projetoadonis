@@ -1,8 +1,8 @@
-import type { HttpContextContract } from '@ioc:Adonis/core/HttpContext'
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Carro from 'App/Models/Carro'
 import CarroValidator from 'App/Validators/CarroValidator'
 
-export default class CarrosController {
+export default class CarrosController { 
 
     public async index({ }: HttpContextContract) {
         const topic = await Carro.all()
