@@ -9,7 +9,7 @@ export default class CarrosController {
         return topic
     }
 
-    public async store({ request, auth }: HttpContextContract) {
+    public async store({ request}: HttpContextContract) {
         const data = await request.validate(CarroValidator)
         const topic = await Carro.create({ ...data})
         return topic
